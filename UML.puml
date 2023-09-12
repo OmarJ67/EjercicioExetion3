@@ -1,0 +1,34 @@
+@startuml Paleta
+
+class Paleta {
+    - sabor: String
+    - precio: double
+    + Paleta(sabor: String, precio: double)
+    + getPrecio(): double
+    + setPrecio(precio: double): void
+    + mostrarInformacion(): void
+    + cambiarPrecio(cantidad: double): void
+}
+
+class BaseCrema {
+    - cremosa: boolean
+    + BaseCrema(sabor: String, precio: double, cremosa: boolean)
+    + mostrarTexturaCremosa(): void
+    + cambiarPrecio(cantidad: double): void
+    + otraFuncionalidad(): void
+}
+
+class PrecioInvalidoException {
+    + PrecioInvalidoException(mensaje: String)
+}
+
+class Main {
+    + main(args: String[]): void
+}
+
+Paleta --> BaseCrema
+BaseCrema --> PrecioInvalidoException
+Main --> Paleta
+Main --> BaseCrema
+
+@enduml
